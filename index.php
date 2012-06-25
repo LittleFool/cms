@@ -34,12 +34,14 @@ $page->loadPage();
     <body>
     	<div id="leisteOben">
             <nav>
-                <a href="#">Seiten</a>
-                <a href="#">Newsletter</a>
+                <a href="índex.php?page=seiten">Seiten</a>
+                <a href="index.php?page=newsletter">Newsletter</a>
             </nav>
         </div>
         <div id="content">
-             
+             <?php
+             echo $page->getTpl();
+             ?>
         </div>
     </body>
 </html>
