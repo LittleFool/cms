@@ -184,7 +184,7 @@ class Template
      * @param     string $replacement  Text with which to replace the var
      * @return    boolean
      */
-    public function assign($replace, $replacement)
+    public function assign($replace, $replacement='')
     {
         $this->template = str_replace($this->leftDelimiter.$replace.$this->rightDelimiter, $replacement, $this->template);
         return  true;
