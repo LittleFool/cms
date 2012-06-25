@@ -9,13 +9,13 @@ class Helper {
      * @return	string
      */
     public static function content() {
-	if (isset($_GET['site']) && $_GET['site'] != '') {
-	    if (Helper::isValidSite($_GET['site'], false)) {
-		return Helper::isValidSite($_GET['site'], true);
+	if (isset($_GET['page']) && $_GET['page'] != '') {
+	    if (Helper::isValidSite($_GET['page'], false)) {
+		return Helper::isValidSite($_GET['page'], true);
 	    } else {
 		return '';
 	    }
-	} elseif (!isset($_GET['site']) || $_GET['site'] == '') {
+	} elseif (!isset($_GET['page']) || $_GET['page'] == '') {
 	    return Helper::isValidSite('prolog', true);
 	}
     }
@@ -71,21 +71,21 @@ class Helper {
     }
     
     public static function isValidSite($get, $return = false) {
-	$site = array();
-	$site['home'] = 'home.php';
+	$page = array();
+	$page['home'] = 'home.php';
 
 	if (!$return)
-	    return array_key_exists($get, $site);
+	    return array_key_exists($get, $page);
 	else
-	    return $site[$get];
+	    return $page[$get];
     }
     
     public static function naviDown($name) {
-	if ((!isset($_GET['site']) || $_GET['site'] == '') && $name == 'prolog')
+	if ((!isset($_GET['page']) || $_GET['page'] == '') && $name == 'prolog')
 	    echo $name . '_down';
-	elseif (isset($_GET['site']) && $_GET['site'] == $name)
+	elseif (isset($_GET['page']) && $_GET['page'] == $name)
 	    echo $name . '_down';
-	elseif (isset($_GET['site']) && $_GET['site'] == 'faecher') {
+	elseif (isset($_GET['page']) && $_GET['page'] == 'faecher') {
 	    if (isset($_GET['fach']) && $_GET['fach'] == $name)
 		echo $name . '_down';
 	    else
