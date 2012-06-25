@@ -20,6 +20,9 @@ function __autoload($className) {
       
       require_once "$fileName";
 }
+
+$page = new Page();
+$page->loadPage();
 ?>
 <!DOCTYPE html>
 <html>
