@@ -11,7 +11,11 @@ class Registry {
   }
 
   public function set($field, $value) {
-    $this->config[$field] = $value;
+      if($field == 'mysql' && is_array($value) && count($value) == 5) {
+          $this->config[$field] = $value;
+      }
+      
+      throw new InvalidArgumentException('Invalid field "'.$field.'" or field has invalid value/type.');
   }
 
   public function get($field) {

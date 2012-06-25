@@ -5,11 +5,17 @@ $mysql = array(
     'host' => 'localhost',
     'user' => 'webserver',
     'pw' => 'USC8sbaKz6Y6yjHP',
-    'database' => 'cms'
+    'database' => 'cms',
+    'tablePrefix' => 'cms_'
 );
 
 $registry = Registry::getInstance();
-$registry->set('mysql', $mysql);
+
+try {
+    $registry->set('mysql', $mysql);
+} catch (Exception $e) {
+    //TODO handle the exception
+}
 
 function __autoload($className) {
       $fileName = __DIR__.'/classes/'.$className.'.php';
