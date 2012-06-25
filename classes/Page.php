@@ -6,7 +6,7 @@
  */
 class Page {
     /**
-     * Gets set by the loaded PHP file and contains the website content.
+     * Get's set by the loaded PHP file and contains the website content.
      * 
      * @var Template 
      */
@@ -19,9 +19,6 @@ class Page {
      */
     private $contentFile = '';
     
-    /**
-     * 
-     */
     public function __construct() {
 	$this->tpl = new Template();
 	$this->contentFile = Helper::content();
