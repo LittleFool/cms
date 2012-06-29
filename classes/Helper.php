@@ -19,7 +19,12 @@ class Helper {
 	    return Helper::isValidSite('prolog', true);
 	}
     }
-
+    
+    public static function getMysqlConfig() {
+        $registry = Registry::getInstance();
+        return $registry.get('mysql');
+    }
+    
     public static function removeSpecialChars($string) {
 	$res = htmlentities($string);
 	$res = str_replace("&lt;", "<", $res);

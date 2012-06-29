@@ -8,9 +8,9 @@ class Page {
     /**
      * Get's set by the loaded PHP file and contains the website content.
      * 
-     * @var Template 
+     * @var String 
      */
-    private $tpl = null;
+    private $tpl = '';
     
     /**
      * Filename of the PHP file that we need to load.
@@ -20,7 +20,6 @@ class Page {
     private $contentFile = '';
     
     public function __construct() {
-	$this->tpl = new Template();
 	$this->contentFile = Helper::content();
     }
     

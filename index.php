@@ -27,7 +27,6 @@ function __autoload($className) {
       require_once "$fileName";
 }
 
-
 $page = new Page();
 $page->loadPage();
 ?>
@@ -41,7 +40,7 @@ $page->loadPage();
     <body>
     	<div id="leisteOben">
             <nav>
-                <a href="índex.php?page=seiten">Seiten</a>
+                <a href="índex.php?page=seiten&AMP;action=list">Seiten</a>
                 <a href="index.php?page=newsletter">Newsletter</a>
             </nav>
         </div>
