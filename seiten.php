@@ -17,6 +17,7 @@ if( isset($_GET['action']) && $_GET['action'] == 'list' ) {
         $tpl->assign('name', $name);
         $tpl->assign('link', $name);
         $tpl->assign('bearbeiten', $id);
+        $this->tpl .= $tpl->out();
     }
     $db->close();
 }

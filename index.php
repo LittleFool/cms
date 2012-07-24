@@ -4,7 +4,7 @@ session_start();
 $mysql = array(
     'host' => 'localhost',
     'user' => 'webserver',
-    'pw' => 'USC8sbaKz6Y6yjHP',
+    'pw' => 'Pgliymv9cJTDSPEDz0QV',
     'database' => 'cms',
     'tablePrefix' => 'cms_'
 );
