@@ -8,8 +8,8 @@ body {
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	color: #999;
-	background-color: #000;
+	color: #222;
+	background-color: #CCC;
 }
 
 /* Navileiste */
@@ -31,6 +31,6 @@ body {
 }
 
 nav a {
-	color: #999;
+	color: #222;
 	font-weight: bold;	
 }

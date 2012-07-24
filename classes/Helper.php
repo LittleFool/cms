@@ -79,11 +79,14 @@ class Helper {
 	$page = array();
 	$page['seiten'] = 'seiten.php';
         $page['newsletter'] = 'newsletter.php';
-
+        
 	if (!$return)
 	    return array_key_exists($get, $page);
-	else
-	    return $page[$get];
+	elseif(array_key_exists($get, $page)) {
+            return $page[$get];
+        } else {
+            return null;
+        }
     }
     
     public static function naviDown($name) {

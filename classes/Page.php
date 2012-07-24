@@ -37,7 +37,6 @@ class Page {
      *  
      */
     public function loadPage() {
-	require '_mysql.php';
 	if($this->contentFile != '') {
 	    include_once $this->contentFile;
 	}
