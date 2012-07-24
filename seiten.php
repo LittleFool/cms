@@ -2,7 +2,7 @@
 if( isset($_GET['action']) && $_GET['action'] == 'list' ) {
     $tpl = new Template();
     $tpl->load("seiten_head.html");
-    $this->tpl.add($tpl);
+    $this->tpl .= $tpl->out();
 
     $mysql = Helper::getMysqlConfig();
 

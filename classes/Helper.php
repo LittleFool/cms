@@ -16,13 +16,13 @@ class Helper {
 		return '';
 	    }
 	} elseif (!isset($_GET['page']) || $_GET['page'] == '') {
-	    return Helper::isValidSite('prolog', true);
+	    return Helper::isValidSite('home', true);
 	}
     }
     
     public static function getMysqlConfig() {
         $registry = Registry::getInstance();
-        return $registry.get('mysql');
+        return $registry->get('mysql');
     }
     
     public static function removeSpecialChars($string) {

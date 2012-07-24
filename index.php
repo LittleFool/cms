@@ -40,7 +40,7 @@ $page->loadPage();
     <body>
     	<div id="leisteOben">
             <nav>
-                <a href="índex.php?page=seiten&AMP;action=list">Seiten</a>
+                <a href="index.php?page=seiten&amp;action=list">Seiten</a>
                 <a href="index.php?page=newsletter">Newsletter</a>
             </nav>
         </div>
