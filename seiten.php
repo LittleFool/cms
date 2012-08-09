@@ -1,4 +1,5 @@
 <?php
+// action == list
 if( isset($_GET['action']) && $_GET['action'] == 'list' ) {
     $tpl = new Template();
     $tpl->load("seiten_head.html");
@@ -24,5 +25,10 @@ if( isset($_GET['action']) && $_GET['action'] == 'list' ) {
     $tpl->load("seiten_footer.html");
     $this->tpl .= $tpl->out();
 
+}
+
+// action == edit
+if( isset($_GET['action']) && $_GET['action'] == 'edit' ) {
+    
 }
 ?>
