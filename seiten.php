@@ -49,13 +49,32 @@ if( isset($_GET['action']) && $_GET['action'] == 'edit' ) {
 }
 
 // action == save
-if( isset($_GET['action']) && $_GET['action'] == 'save' ) {
-    $db = new MySQLi($mysql['host'], $mysql['user'], $mysql['pw'], $mysql['database']);
-    $sql = "UPDATE `content` FROM `".$mysql['tablePrefix']."seiten` WHERE `id`=?";
-    $kommando = $db->prepare($sql);
-    $kommando->execute();
-    $kommando->fetch();
-        
-    $db->close();
+if( isset($_POST['action']) && isset($_POST['id']) && $_POST['action'] == 'save' && $_POST['id'] >= 0 ) {
+    $skip_error = false;
+    $error = '';
+    $tpl = new Template();
+    $tpl->load("seiten_edit.html");
+    
+    
+    if( isset($_POST['skip_error']) && $_POST['skip_error'] == 'yes' ) {
+        $skip_error = true;
+    }
+    
+    if( (!isset($_POST['content']) || $_POST['content'] == '') && $skip_error === false ) {
+        $error = 'Die Seite hat keinen Inhalt!<br />Trotzdem speichern?';
+        $tpl->assign('error', $error);
+        $this->tpl .= $tpl->out();
+    } else {
+        $db = new MySQLi($mysql['host'], $mysql['user'], $mysql['pw'], $mysql['database']);
+        $sql = "UPDATE `content` FROM `".$mysql['tablePrefix']."seiten` WHERE `id`=?";
+        $kommando = $db->prepare($sql);
+        $kommando->bind_param('si', $content, $id);
+        $kommando->execute();
+        $kommando->fetch();
+
+        $db->close();
+        $tpl->assign('error');
+        $this->tpl .= $tpl->out();
+    }
 }
 ?>
