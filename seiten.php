@@ -51,18 +51,14 @@ if( isset($_GET['action']) && $_GET['action'] == 'edit' ) {
 // action == save
 if( isset($_POST['action']) && isset($_POST['id']) && $_POST['action'] == 'save' && $_POST['id'] >= 0 ) {
     $skip_error = false;
-    $error = '';
     $tpl = new Template();
-    $tpl->load("seiten_edit.html");
-    
     
     if( isset($_POST['skip_error']) && $_POST['skip_error'] == 'yes' ) {
         $skip_error = true;
     }
     
     if( (!isset($_POST['content']) || $_POST['content'] == '') && $skip_error === false ) {
-        $error = 'Die Seite hat keinen Inhalt!<br />Trotzdem speichern?';
-        $tpl->assign('error', $error);
+        $tpl->load("seiten_edit_error.html");
         $this->tpl .= $tpl->out();
     } else {
         $db = new MySQLi($mysql['host'], $mysql['user'], $mysql['pw'], $mysql['database']);
@@ -73,8 +69,6 @@ if( isset($_POST['action']) && isset($_POST['id']) && $_POST['action'] == 'save'
         $kommando->fetch();
 
         $db->close();
-        $tpl->assign('error');
-        $this->tpl .= $tpl->out();
     }
 }
 ?>
