@@ -1,5 +1,7 @@
 <div>
-    <textarea class="tinymce">
-        {$content}
-    </textarea>
+    <form method="post" action="index.php?page=seiten&amp;action=save">
+        <textarea class="tinymce" name="content">
+            {$content}
+        </textarea>
+    </form>
 </div>
