@@ -32,7 +32,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
 if (isset($_GET['action']) && $_GET['action'] == 'edit') {
     $tpl = new Template();
     $tpl->load("seiten_edit.html");
-    $this->tpl .= $tpl->out();
 
     $mysql = Helper::getMysqlConfig();
 
@@ -44,10 +43,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'edit') {
     $kommando->bind_result($id, $name, $content);
     $kommando->fetch();
 
-    // show the editor with th content
+    // show the editor with the content
     $tpl->assign('name', $name);
     $tpl->assign('content', $content);
-    $tpl->load('seiten_body.html');
     $tpl->assign('id', $id);
     $this->tpl .= $tpl->out();
 
@@ -55,10 +53,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'edit') {
 }
 
 // action == save
-if (isset($_POST['action']) && isset($_POST['id']) && $_POST['action'] == 'save' && $_POST['id'] >= 0) {
+if (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == 'save' && $_GET['id'] >= 0) {
     $tpl = new Template();
 
     $mysql = Helper::getMysqlConfig();
+    $content = stripslashes($_POST['content']);
+    $id = $_GET['id'];
 
     // update the website
     $db = new MySQLi($mysql['host'], $mysql['user'], $mysql['pw'], $mysql['database']);
