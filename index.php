@@ -36,8 +36,9 @@ $page->loadPage();
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Adminbereich</title>
         <link href="css/styles.css" rel="stylesheet" type="text/css">
-        <link src="js/jquery-1.8.0.min.js" type="text/javascript">
-        <link src="js/tiny_mce/jquery.tinymce.js" type="text/javascript">
+        <script language="javascript" type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+        <script language="javascript" type="text/javascript" src="js/tiny_mce/jquery.tinymce.js"></script>
+        <script language="javascript" type="text/javascript" src="js/functions.js"></script>
     </head>
     <body>
     	<div id="leisteOben">
