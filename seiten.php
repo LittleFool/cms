@@ -5,6 +5,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $tpl->load("seiten_head.html");
     $this->tpl .= $tpl->out();
 
+    $registry = Registry::getInstance();
+    try {
+        $website = $registry->get('website');
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
     $mysql = Helper::getMysqlConfig();
     $i = 0;
 
@@ -21,10 +27,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
         }
         $i++;
         $lastEdited = date("d.m.Y G:H:s", $lastEdited);
+        $link = 'http://'.$website['name'].'/index.php?page='.$name;
         
         $tpl->load('seiten_body.html');
         $tpl->assign('name', $name);
-        $tpl->assign('link', $name);
+        $tpl->assign('link', $link);
         $tpl->assign('changed', $lastEdited);
         $tpl->assign('id', $id);
         $tpl->assign('line', $line);
