@@ -1,36 +1,41 @@
 @charset "utf-8";
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	line-height: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	color: #222;
-	background-color: #CCC;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    color: #222;
+    background-color: #CCC;
 }
 
 /* Navileiste */
 #leisteOben {
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-right-color: #A00;
-	border-bottom-color: #A00;
-	width: 150px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 8px;
-	padding-left: 3px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-right-color: #A00;
+    border-bottom-color: #A00;
+    width: 150px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 8px;
+    padding-left: 3px;
 }
 #leisteOben nav {
-	display: inline;
+    display: inline;
 }
 
 nav a {
-	color: #222;
-	font-weight: bold;	
+    color: #222;
+    font-weight: bold;	
+}
+
+h1 {
+    font-size: 16pt;
+    color: #A00;
 }
