@@ -1,22 +1,6 @@
 <?php
 session_start();
 
-$mysql = array(
-    'host' => 'localhost',
-    'user' => 'webserver',
-    'pw' => 'Pgliymv9cJTDSPEDz0QV',
-    'database' => 'cms',
-    'tablePrefix' => 'cms_'
-);
-
-$registry = Registry::getInstance();
-
-try {
-    $registry->set('mysql', $mysql);
-} catch (Exception $e) {
-    //TODO handle the exception
-}
-
 function __autoload($className) {
       $fileName = __DIR__.'/classes/'.$className.'.php';
       
@@ -26,6 +10,7 @@ function __autoload($className) {
       
       require_once "$fileName";
 }
+require_once 'setRegistry.php';
 
 $page = new Page();
 $page->loadPage();
