@@ -1,3 +1,4 @@
+//<![CDATA[
 $().ready(function() {
     $('textarea.tinymce').tinymce({
         // Location of TinyMCE script
@@ -33,3 +34,4 @@ $().ready(function() {
         media_external_list_url : "lists/media_list.js"
     });
 });
+//]]>
