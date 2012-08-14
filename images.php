@@ -1,13 +1,20 @@
 <?php
-$dir = '../images';
-
-if (is_dir($dir)) {
-    if ($dh = opendir($dir)) {
-        while (($file = readdir($dh)) !== false) {
-            if($file != '.' && $file != '..')
-                echo "filename: ".$file."<br />";
+// action == list
+if(isset($_GET['action']) && $_GET['action'] == 'list') {
+    $registry = Registry::getInstance();
+    $dir = $registry['website']['imagesFolder'];
+    $tpl = new Template();
+    $tpl->load("images_head.html");
+    
+    if(is_dir($dir)) {
+        if($dirHandle = opendir($dir)) {
+            while( ($file = readdir($dirHandle)) !== false ) {
+               if($file != '.' && $file != '..') {
+                   
+               } 
+            }
+            closedir($dirHandle);
         }
-        closedir($dh);
     }
 }
 ?>
