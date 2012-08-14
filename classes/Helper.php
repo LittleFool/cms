@@ -95,18 +95,13 @@ class Helper {
     }
     
     public static function naviDown($name) {
-	if ((!isset($_GET['page']) || $_GET['page'] == '') && $name == 'prolog')
-	    echo $name . '_down';
-	elseif (isset($_GET['page']) && $_GET['page'] == $name)
-	    echo $name . '_down';
-	elseif (isset($_GET['page']) && $_GET['page'] == 'faecher') {
-	    if (isset($_GET['fach']) && $_GET['fach'] == $name)
-		echo $name . '_down';
-	    else
-		echo $name;
-	}
-	else
-	    echo $name;
+	if ((!isset($_GET['page']) || $_GET['page'] == '') && $name == 'seiten') {
+            echo '&raquo;';
+        } elseif (isset($_GET['page']) && $_GET['page'] == $name) {
+	    echo '&raquo;';
+        } else {
+            echo '';
+        }
     }
 
     public static function readFile($folder, $file) {

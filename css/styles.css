@@ -14,11 +14,8 @@ body {
 
 /* Navbar start */
 #leisteOben {
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-right-style: solid;
+    border-bottom-width: 3px;
     border-bottom-style: solid;
-    border-right-color: #A00;
     border-bottom-color: #A00;
     width: 100px;
     padding-top: 5px;
@@ -39,7 +36,7 @@ nav a {
 h1 {
     font-size: 16pt;
     color: #A00;
-    padding-top: 4px;
+    padding-top: 50px;
 }
 
 table a {
