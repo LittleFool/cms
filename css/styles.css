@@ -12,7 +12,7 @@ body {
     background-color: #CCC;
 }
 
-/* Navileiste */
+/* Navbar start */
 #leisteOben {
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -34,8 +34,19 @@ nav a {
     color: #222;
     font-weight: bold;	
 }
+/* Navbar end */
 
 h1 {
     font-size: 16pt;
     color: #A00;
+}
+
+table {
+    width: 50%;
+}
+table .even {
+    background-color: #EEE;
+}
+table .odd {
+    background-color: #DDD;
 }

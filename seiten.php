@@ -7,6 +7,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $this->tpl .= $tpl->out();
 
     $mysql = Helper::getMysqlConfig();
+    $i = 0;
 
     // list all websites
     $db = new MySQLi($mysql['host'], $mysql['user'], $mysql['pw'], $mysql['database']);
@@ -15,11 +16,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $kommando->execute();
     $kommando->bind_result($id, $name, $lastEdited);
     while ($kommando->fetch()) {
+        switch($i%2) {
+            case 0: $line = 'even'; break;
+            case 1: $line = 'odd'; break;
+        }
+        
         $tpl->load('seiten_body.html');
         $tpl->assign('name', $name);
         $tpl->assign('link', $name);
         $tpl->assign('changed', $lastEdited);
         $tpl->assign('id', $id);
+        $tpl->assign('line', $line);
         $this->tpl .= $tpl->out();
     }
     $db->close();
