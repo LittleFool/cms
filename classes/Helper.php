@@ -77,7 +77,13 @@ class Helper {
     
     public static function isValidSite($get, $return = false) {
 	$registry = Registry::getInstance();
-        $page = $registry['website']['validPages'];
+        try {
+            $page = $registry->get('validPages');
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        
+        
         
 	if (!$return)
 	    return array_key_exists($get, $page);

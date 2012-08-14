@@ -2,7 +2,8 @@
 // action == list
 if(isset($_GET['action']) && $_GET['action'] == 'list') {
     $registry = Registry::getInstance();
-    $dir = $registry['website']['imagesFolder'];
+    $website = $registry->get('website');
+    $dir = $website['validPages'];
     $tpl = new Template();
     $tpl->load("images_head.html");
     

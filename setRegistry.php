@@ -18,7 +18,12 @@ $page = array(
 );
 
 $registry = Registry::getInstance();
-$registry->set('mysql', $mysql);
-$registry->set('website', $website);
-$registry->set('validPages', $page);
+
+try {
+    $registry->set('mysql', $mysql);
+    $registry->set('website', $website);
+    $registry->set('validPages', $page);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 ?>

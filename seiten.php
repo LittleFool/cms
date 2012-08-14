@@ -1,5 +1,4 @@
 <?php
-
 // action == list
 if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $tpl = new Template();
