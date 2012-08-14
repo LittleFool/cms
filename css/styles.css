@@ -20,7 +20,7 @@ body {
     border-bottom-style: solid;
     border-right-color: #A00;
     border-bottom-color: #A00;
-    width: 150px;
+    width: 100px;
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 8px;
@@ -39,7 +39,7 @@ nav a {
 h1 {
     font-size: 16pt;
     color: #A00;
-    padding-top: 5px;
+    padding-top: 4px;
 }
 
 table a {
