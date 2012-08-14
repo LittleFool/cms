@@ -12,7 +12,13 @@ $website = array(
     'imagesFolder' => 'images/'
 );
 
+$page = array(
+    'seiten' => 'seiten.php',
+    'images' => 'images.php'
+);
+
 $registry = Registry::getInstance();
 $registry->set('mysql', $mysql);
 $registry->set('website', $website);
+$registry->set('validPages', $page);
 ?>
