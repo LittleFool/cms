@@ -20,6 +20,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
             case 0: $line = 'even'; break;
             case 1: $line = 'odd'; break;
         }
+        $i++;
         
         $tpl->load('seiten_body.html');
         $tpl->assign('name', $name);
@@ -77,6 +78,6 @@ if (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == 'save' &&
     $db->close();
 
     // show the user the overview
-    header('Location: http://admin.laufschule-dortmund.de/index.php?page=seiten&amp;action=list');
+    header('Location: http://192.168.201.3/cms/index.php?page=seiten&action=list');
 }
 ?>

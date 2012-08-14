@@ -39,6 +39,11 @@ nav a {
 h1 {
     font-size: 16pt;
     color: #A00;
+    padding-top: 5px;
+}
+
+table a {
+    color: #A00;
 }
 
 table {
