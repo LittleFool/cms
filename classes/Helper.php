@@ -78,7 +78,7 @@ class Helper {
     public static function isValidSite($get, $return = false) {
 	$page = array();
 	$page['seiten'] = 'seiten.php';
-        $page['newsletter'] = 'newsletter.php';
+        $page['images'] = 'images.php';
         
 	if (!$return)
 	    return array_key_exists($get, $page);

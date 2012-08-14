@@ -29,12 +29,12 @@ $page->loadPage();
     	<div id="leisteOben">
             <nav>
                 <a href="index.php?page=seiten&amp;action=list">Seiten</a>
-                <a href="index.php?page=newsletter">Newsletter</a>
+                <a href="index.php?page=images">Bilder</a>
             </nav>
         </div>
         <div id="content">
              <?php
-             echo $page->getTpl();
+                echo $page->getTpl();
              ?>
         </div>
     </body>
