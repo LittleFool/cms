@@ -29,7 +29,7 @@ $page->loadPage();
     	<div id="leisteOben">
             <nav>
                 <a href="index.php?page=seiten&amp;action=list"><?php Helper::naviDown('seiten'); ?>Seiten</a>
-                <a href="index.php?page=images"><?php Helper::naviDown('images'); ?>Bilder</a>
+                <a href="index.php?page=images&amp;action=list"><?php Helper::naviDown('images'); ?>Bilder</a>
             </nav>
         </div>
         <div id="content">
