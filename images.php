@@ -1,4 +1,6 @@
 <?php
+define('PREVIOUS', '../');
+
 // action == list
 if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $registry = Registry::getInstance();
@@ -10,7 +12,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
     } catch (Exception $e) {
         echo $e->getMessage();
     }
-//    $dir = '../'.$website['imageFolder'];
+//    $dir = PREVIOUS.$website['imageFolder'];
     $dir = '../BookTo/images/navis';
     $i = 0;
 
@@ -23,7 +25,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
                         case 1: $line = 'odd'; break;
                     }
                     $i++;
-//                    $preview = '../'.$website['imagesFolder'].$file;
+//                    $preview = PREVIOUS.$website['imagesFolder'].$file;
                     $preview = '../BookTo/images/navis/'.$file;
                     $link = $website['imagesFolder'].$file;
                     
@@ -45,7 +47,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
 // action == delete
 if (isset($_GET['action']) && isset($_POST['delete']) && is_array($_POST['delete']) && $_GET['action'] == 'delete') {
     foreach($_POST['delete'] as $file) {
-        if(!unlink($file)) {
+        if(!unlink('../BookTo/images/navis/'.$file)) {
             die("Keine Schreibrechte f&uuml;r das Verzeichnis!");
         }
     }
