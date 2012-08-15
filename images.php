@@ -1,4 +1,17 @@
 <?php
+
+// Helper functions
+function exit_status($str) {
+    echo json_encode(array('status' => $str));
+    exit;
+}
+
+function get_extension($file_name) {
+    $ext = explode('.', $file_name);
+    $ext = array_pop($ext);
+    return strtolower($ext);
+}
+
 define('PREVIOUS', '../');
 $registry = Registry::getInstance();
 try {
@@ -58,24 +71,25 @@ if (isset($_GET['action']) && isset($_POST['delete']) && is_array($_POST['delete
 
 // action == save
 if (isset($_GET['action']) && $_GET['action'] == 'save') {
-    $allowedExts = array("jpg", "jpeg", "gif", "png");
-    $extension = end(explode(".", $_FILES["file"]["name"]));
-    $allowedTypes = array("image/gif", "image/jpeg", "image/pjpeg");
-    $type = $_FILES["file"]["type"];
+    $upload_dir = PREVIOUS.$website['imagesFolder'];
+    $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
 
-    if (in_array($type, $allowedTypes) && in_array($extension, $allowedExts)) {
-        if ($_FILES["file"]["error"] > 0) {
-            echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
-        } else {
-            if (file_exists(PREVIOUS . $website['imageFolder'] . $_FILES["file"]["name"])) {
-                echo $_FILES["file"]["name"] . " already exists. ";
-            } else {
-                move_uploaded_file($_FILES["file"]["tmp_name"], PREVIOUS . $website['imageFolder'] . $_FILES["file"]["name"]);
-                echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-            }
+    if (strtolower($_SERVER['REQUEST_METHOD']) != 'post') {
+        exit_status('Error! Wrong HTTP method!');
+    }
+
+    if (array_key_exists('pic', $_FILES) && $_FILES['pic']['error'] == 0) {
+        $pic = $_FILES['pic'];
+
+        if (!in_array(get_extension($pic['name']), $allowed_ext)) {
+            exit_status('Only ' . implode(',', $allowed_ext) . ' files are allowed!');
         }
-    } else {
-        echo "Invalid file";
+        
+        // Move the uploaded file from the temporary 
+        // directory to the uploads folder:
+        if (move_uploaded_file($pic['tmp_name'], $upload_dir . $pic['name'])) {
+            exit_status('File was uploaded successfuly!');
+        }
     }
 }
 ?>
