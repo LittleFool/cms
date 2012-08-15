@@ -41,4 +41,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'list') {
     $tpl->load("images_footer.html");
     $this->tpl .= $tpl->out();
 }
+
+// action == delete
+if (isset($_GET['action']) && isset($_POST['delete']) && is_array($_POST['delete']) && $_GET['action'] == 'delete') {
+    foreach($_POST['delete'] as $file) {
+        if(!unlink($file)) {
+            die("Keine Schreibrechte f&uuml;r das Verzeichnis!");
+        }
+    }
+    header('Location: http://192.168.201.3/cms/index.php?page=images&action=list');
+}
 ?>
